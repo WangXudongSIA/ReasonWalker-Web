@@ -97,14 +97,14 @@
           <!-- 修改后的图片容器 -->
           <div class="image-wrapper" style="max-width: 800px; margin: 0 auto;">
             <img 
-              src="static/images/F2.jpg" 
+              src="static/images/F1.png" 
               alt="Customization performance comparison"
               style="width: 100%; height: auto; border: 1px solid #eee; border-radius: 4px;"
             >
           </div>
           <h2 class="subtitle has-text-centered mt-4" style="max-width: 800px; margin: 0 auto;">
-            <strong>The proposed Continual Text-to-Video Customization task:</strong>
-            CCVD in continually learning new personalized concepts, including subjects and motions, for customized text-to-video generation under the CTVC setting. Compared with L2DM, our model achieves better performance to address the CTVC problem.
+            
+            <strong>Comparison of the proposed ReasonWalker with the existing VLN model.<strong> a). Traditional VLN model performs navigation with user explicit step-by-step instructions. b). Our ReasonWalker achieves reasoning navigation with user implicit instructions, guided by LLM reasoning scene associations.
           </h2>
         </div>
       </div>
@@ -133,7 +133,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Customized text-to-video generation (CTVG) has recently witnessed significant progress in generating tailored videos from user-specific text. However, existing CTVG methods unrealistically assume that personalized concepts remain static and do not expand incrementally over time. Additionally, they struggle with catastrophic forgetting and concept neglect when continuously learning new concepts, including subjects and motions. To resolve the above challenges, we develop a novel Continual Customized Video Diffusion (CCVD) model, which can continuously learn new concepts to generate videos across various text-to-video generation tasks by tackling catastrophic forgetting and concept neglect. Specifically, to address catastrophic forgetting, we introduce a concept-specific attribute retention module and a task-aware concept aggregation strategy. They can capture the unique characteristics and identities of old concepts during training, while combining all subject and motion adapters of old concepts based on their relevance during testing. Furthermore, to tackle concept neglect, we develop a controllable conditional synthesis to enhance regional features and align video contexts with user conditions, by incorporating region attention and attention-guided noise estimation. Experimental comparisons demonstrate our CCVD outperforms existing CTVG models.
+            Existing vision-and-language navigation (VLN) agents often fail to reason users’ implicit goals and cannot leverage past experience in persistent environments. In this paper, we propose ReasonWalker, a novel navigation model designed to enable reasoning-based navigation using implicit instructions over time. To ensure persistent and efficient operation, ReasonWalker constructs and stores explicit scene maps, allowing it to learn scene associations for improved re-navigation in subsequent episodes. To facilitate comprehension and reasoning over implicit instructions, ReasonWalker leverages a large language model to jointly process user instructions, agent observations, and scene maps, generating semantic navigation tokens that guide action prediction. To train ReasonWalker, we propose a new hierarchical learning paradigm, where the model first learns navigation actions and then acquires scene associations for implicit instruction reasoning. Additionally, we also provide a new implicit instruction benchmark to support training and evaluation of reasoning-based navigation task. Extensive experiments demonstrate the effectiveness and superiority of the proposed ReasonWalker. 
           </p>
         </div>
       </div>
@@ -151,13 +151,13 @@
           <!-- 修改后的图片容器 -->
           <div class="image-wrapper" style="max-width: 800px; margin: 0 auto;">
             <img 
-              src="static/images/F1.jpg" 
+              src="static/images/ReasonWalker.png" 
               alt="Customization performance comparison"
               style="width: 100%; height: auto; border: 1px solid #eee; border-radius: 4px;"
             >
           </div>
           <h2 class="subtitle has-text-centered mt-4" style="max-width: 800px; margin: 0 auto;">
-            Architectural overview of our CCVD model. It includes (a) a <strong>concept-specific attribute retention module</strong>, (b) a <strong>task-aware concept aggregation strategy</strong> to overcome catastrophic forgetting of previously learned concepts, and (c) a <strong>controllable conditional synthesis module</strong> with layer-specific region attention and attention-guided noise estimation to address the issue of concept neglect.
+            Illustration of the proposed ReasonWalker pipeline. At time t, the agent observes the RGB image and depth image to perceive the navigation scene, and follows the user's instructions to perform navigation. ReasonWalker consists of two main modules: The <strong>Scene Semantic Mapping Module<strong> constructs and saves semantic and occupancy maps. The <strong>Reasoning Navigation Action Module<strong> reasons user instructions with agent observations and scene maps to predict next navigation action.
           </h2>
         </div>
       </div>
@@ -174,13 +174,13 @@
           <!-- 修改后的图片容器 -->
           <div class="image-wrapper" style="max-width: 800px; margin: 0 auto;">
             <img 
-              src="static/images/F3.jpg" 
+              src="static/images/FD.png" 
               alt="Customization performance comparison"
               style="width: 100%; height: auto; border: 1px solid #eee; border-radius: 4px;"
             >
           </div>
           <h2 class="subtitle has-text-centered mt-4" style="max-width: 800px; margin: 0 auto;">
-            <strong>Visualization of 35 consecutive text-to-video customization tasks</strong> in the CVC dataset, including 25 personalized subjects and 10 <span style="color: #DAA520;">motion (yellow)</span> patterns. Among the 25 personalized subjects, 9 are <span style="color: blue;">pets (blue)</span>, 5 are <span style="color: purple;">styles (purple)</span>, and the remaining 11 are <span style="color: green;">objects (green)</span>.
+            <strong><strong>Statistics of the transformed implicit instruction datasets.<strong> The statistics graph contains eight groups of comparison metrics: <strong>Average Instruction Length<strong> (the average number of words in an instruction), <strong>Single Sentence Length<strong> (the average number of words in a single sentence instruction), <strong>Number of Sentences<strong> (the average number of sentences in an instruction), <strong>Percentage of Compound Sentences<strong> (an instruction consisting of more than one sentence is called to as a compound sentence), <strong>Frequency of Explicit Locations<strong> (the probability of the occurrence of explicit locations in each instruction), <strong>Percentage of Action Words<strong> (the probability of the occurrence of an action word in a sentence), <strong>SR<strong> (success rate), and <strong>SPL<strong> (success weighted by inverse path length). <strong>G1<strong> represents unchanged instructions, and <strong>G2<strong> represents our transformed implicit instructions.
           </h2>
         </div>
       </div>
